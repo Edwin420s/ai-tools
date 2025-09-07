@@ -1,0 +1,95 @@
+import pandas as pd
+from sklearn.datasets import load_iris
+
+def create_iris_data():
+    """
+    Create Iris dataset CSV file from sklearn dataset
+    """
+    # Load Iris dataset
+    iris = load_iris()
+    
+    # Create DataFrame
+    df = pd.DataFrame(iris.data, columns=iris.feature_names)
+    
+    # Add target column
+    df['species'] = iris.target
+    
+    # Map target values to species names
+    df['species'] = df['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})
+    
+    # Add some additional metadata columns for practice
+    df['sepal_area'] = df['sepal length (cm)'] * df['sepal width (cm)']
+    df['petal_area'] = df['petal length (cm)'] * df['petal width (cm)']
+    df['sepal_ratio'] = df['sepal length (cm)'] / df['sepal width (cm)']
+    df['petal_ratio'] = df['petal length (cm)'] / df['petal width (cm)']
+    
+    # Save to CSV
+    df.to_csv('iris_data.csv', index=False)
+    print("Iris data CSV created successfully!")
+    
+    return df
+
+# Alternative: Create a more detailed version with sample data
+def create_detailed_iris_data():
+    """
+    Create a more detailed Iris dataset with additional information
+    """
+    # Sample data for three iris species
+    iris_data = [
+        # Setosa samples (10)
+        {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "location": "North"},
+        {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "location": "North"},
+        {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "location": "North"},
+        {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "location": "South"},
+        {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "location": "South"},
+        {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "location": "East"},
+        {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "location": "East"},
+        {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "location": "West"},
+        {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "location": "West"},
+        {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "location": "Central"},
+        
+        # Versicolor samples (10)
+        {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "location": "North"},
+        {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "location": "North"},
+        {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "location": "South"},
+        {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "location": "South"},
+        {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "location": "East"},
+        {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "location": "East"},
+        {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "location": "West"},
+        {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "location": "West"},
+        {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "location": "Central"},
+        {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "location": "Central"},
+        
+        # Virginica samples (10)
+        {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "location": "North"},
+        {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "location": "North"},
+        {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "location": "South"},
+        {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "location": "South"},
+        {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "location": "East"},
+        {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "location": "East"},
+        {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "location": "West"},
+        {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "location": "West"},
+        {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "location": "Central"},
+        {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "location": "Central"}
+    ]
+    
+    # Create DataFrame
+    df = pd.DataFrame(iris_data)
+    
+    # Add calculated fields
+    df['sepal_area'] = df['sepal_length'] * df['sepal_width']
+    df['petal_area'] = df['petal_length'] * df['petal_width']
+    df['sepal_ratio'] = df['sepal_length'] / df['sepal_width']
+    df['petal_ratio'] = df['petal_length'] / df['petal_width']
+    
+    # Save to CSV
+    df.to_csv('iris_data.csv', index=False)
+    print("Detailed Iris data CSV created successfully!")
+    
+    return df
+
+# Run the function to create the file
+if __name__ == "__main__":
+    # Choose which version to create
+    create_iris_data()  # Standard version from sklearn
+    # create_detailed_iris_data()  # More detailed custom version

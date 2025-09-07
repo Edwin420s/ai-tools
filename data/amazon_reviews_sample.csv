@@ -1,0 +1,143 @@
+import pandas as pd
+import numpy as np
+
+def create_amazon_reviews_sample():
+    """
+    Create a sample Amazon reviews dataset for NLP analysis
+    """
+    # Sample reviews data
+    reviews_data = [
+        {
+            "review_id": 1,
+            "product_id": "IPHONE13",
+            "review_text": "This iPhone is absolutely amazing! The battery life lasts all day and the camera quality is outstanding. Definitely worth the price.",
+            "rating": 5,
+            "product_name": "iPhone 13",
+            "brand": "Apple"
+        },
+        {
+            "review_id": 2,
+            "product_id": "SAMSUNGTVC",
+            "review_text": "The Samsung TV has terrible picture quality. Very disappointed with this purchase. Would not recommend to anyone.",
+            "rating": 1,
+            "product_name": "Samsung Crystal UHD TV",
+            "brand": "Samsung"
+        },
+        {
+            "review_id": 3,
+            "product_id": "AMZECHO",
+            "review_text": "Amazon delivery was incredibly fast as always. The Echo Dot works perfectly and the sound quality is impressive for its size.",
+            "rating": 4,
+            "product_name": "Echo Dot (4th Gen)",
+            "brand": "Amazon"
+        },
+        {
+            "review_id": 4,
+            "product_id": "BOOK123",
+            "review_text": "This book arrived completely damaged. The cover was torn and pages were bent. Very poor packaging from the seller.",
+            "rating": 2,
+            "product_name": "The Midnight Library",
+            "brand": "Penguin Books"
+        },
+        {
+            "review_id": 5,
+            "product_id": "NIKEAIR",
+            "review_text": "Nike Air Max shoes are extremely comfortable and stylish. Great purchase for running and everyday wear!",
+            "rating": 5,
+            "product_name": "Nike Air Max 270",
+            "brand": "Nike"
+        },
+        {
+            "review_id": 6,
+            "product_id": "MSURFACE",
+            "review_text": "Microsoft Surface laptop overheats quickly and the battery life is disappointing. Not worth the high price tag.",
+            "rating": 2,
+            "product_name": "Microsoft Surface Laptop 4",
+            "brand": "Microsoft"
+        },
+        {
+            "review_id": 7,
+            "product_id": "SONYWH",
+            "review_text": "Sony headphones have excellent sound quality but are uncomfortable for long periods. The bass is impressive though.",
+            "rating": 3,
+            "product_name": "Sony WH-1000XM4",
+            "brand": "Sony"
+        },
+        {
+            "review_id": 8,
+            "product_id": "DELLMON",
+            "review_text": "Dell monitor has vibrant colors and incredibly sharp display. Very satisfied with this purchase!",
+            "rating": 5,
+            "product_name": "Dell 27 Inch Monitor",
+            "brand": "Dell"
+        },
+        {
+            "review_id": 9,
+            "product_id": "HPINK",
+            "review_text": "HP printer constantly jams and the ink cartridges are ridiculously expensive. Would not buy again.",
+            "rating": 1,
+            "product_name": "HP Envy Photo Printer",
+            "brand": "HP"
+        },
+        {
+            "review_id": 10,
+            "product_id": "CANONR5",
+            "review_text": "Canon EOS R5 camera takes beautiful, professional-quality photos but the battery life could be better.",
+            "rating": 4,
+            "product_name": "Canon EOS R5",
+            "brand": "Canon"
+        },
+        {
+            "review_id": 11,
+            "product_id": "MACBOOKP",
+            "review_text": "MacBook Pro performance is exceptional for video editing and programming tasks. The M1 chip is revolutionary!",
+            "rating": 5,
+            "product_name": "MacBook Pro 13-inch",
+            "brand": "Apple"
+        },
+        {
+            "review_id": 12,
+            "product_id": "KINDLEPW",
+            "review_text": "Kindle Paperwhite is good for reading but the screen sometimes has issues with responsiveness.",
+            "rating": 3,
+            "product_name": "Kindle Paperwhite",
+            "brand": "Amazon"
+        },
+        {
+            "review_id": 13,
+            "product_id": "GALAXYS21",
+            "review_text": "Samsung Galaxy S21 has an amazing camera but the battery drains too quickly. Overall a decent phone.",
+            "rating": 4,
+            "product_name": "Samsung Galaxy S21",
+            "brand": "Samsung"
+        },
+        {
+            "review_id": 14,
+            "product_id": "PLAYSTATION5",
+            "review_text": "PlayStation 5 is incredible! The graphics are mind-blowing and the loading times are super fast.",
+            "rating": 5,
+            "product_name": "PlayStation 5",
+            "brand": "Sony"
+        },
+        {
+            "review_id": 15,
+            "product_id": "ROBOVAC",
+            "review_text": "This robot vacuum is terrible at navigating and constantly gets stuck. Complete waste of money.",
+            "rating": 1,
+            "product_name": "iRobot Roomba 675",
+            "brand": "iRobot"
+        }
+    ]
+    
+    # Create DataFrame
+    df = pd.DataFrame(reviews_data)
+    
+    # Save to CSV
+    df.to_csv('amazon_reviews_sample.csv', index=False)
+    print("Amazon reviews sample CSV created successfully!")
+    
+    return df
+
+# Run the function to create the file
+if __name__ == "__main__":
+    create_amazon_reviews_sample()
