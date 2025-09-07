@@ -1,11 +1,12 @@
 AI Tools : Mastering the AI Toolkit
 
 
-https://img.shields.io/badge/Python-3.8%252B-blue
-https://img.shields.io/badge/TensorFlow-2.12-orange
-https://img.shields.io/badge/Scikit--learn-1.2-green
-https://img.shields.io/badge/spaCy-3.5-lightblue
-https://img.shields.io/badge/License-MIT-yellow
+![Python](https://img.shields.io/badge/Python-3.8%252B-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-orange)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.2-green)
+![spaCy](https://img.shields.io/badge/spaCy-3.5-lightblue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
+
 
 
 A comprehensive implementation of an AI Tools Assignment demonstrating proficiency with various AI frameworks and tools through theoretical analysis and practical implementation.
